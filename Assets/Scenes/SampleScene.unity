@@ -399,8 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5f4215b35088c242b2519586cc5ae18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleractionForce: 20
+  acceleractionForce: 40
   maxSpeed: 5
+  jumpForce: 10
   rb2d: {fileID: 1515467542}
 --- !u!50 &1515467542
 Rigidbody2D:
