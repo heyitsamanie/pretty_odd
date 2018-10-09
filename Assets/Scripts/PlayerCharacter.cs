@@ -18,6 +18,12 @@ public class PlayerCharacter : MonoBehaviour
     private Rigidbody2D rb2d;
 
     [SerializeField]
+    private Collider2D playerGroundCollider;
+
+    [SerializeField]
+    private PhysicsMaterial2D playerMovingPhysicsMaterial, playerStoppingPhysicsMaterial;
+
+    [SerializeField]
     private Collider2D groundDetectTrigger;
 
     [SerializeField]
@@ -36,6 +42,30 @@ public class PlayerCharacter : MonoBehaviour
         HandleJumpInput();
 
     }
+    
+
+    private void FixedUpdate()
+    {
+        UpdatePhysicsMaterial();
+        Move();
+
+    }
+
+    
+    private void UpdatePhysicsMaterial()
+    {
+        if (Mathf.Abs(horizontalInput) > 0)
+        {
+            playerGroundCollider.sharedMaterial = playerMovingPhysicsMaterial;
+        }
+
+        else
+        {
+            playerGroundCollider.sharedMaterial = playerStoppingPhysicsMaterial; 
+        }
+
+    }
+
 
     private void UpdateIsOnGround()
     {
@@ -44,10 +74,12 @@ public class PlayerCharacter : MonoBehaviour
   
     }
 
+
     private void UpdateHorizontalInput()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxisRaw("Horizontal");
     }
+
 
     private void HandleJumpInput()
     {
@@ -58,11 +90,6 @@ public class PlayerCharacter : MonoBehaviour
         }
     }
 
-    private void FixedUpdate() 
-    {
-        Move();
-
-    }
 
     private void Move()
     {
