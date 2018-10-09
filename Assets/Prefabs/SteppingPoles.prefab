@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212999976979352892}
   - component: {fileID: 61683870060108902}
   m_Layer: 8
-  m_Name: tileset-sliced_10 (7)
+  m_Name: SteppingPoles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
